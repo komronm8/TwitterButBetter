@@ -8,13 +8,10 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class LoginNewComponent {
   username: FormControl = new FormControl('', [ Validators.minLength(3), Validators.maxLength(12) ] );
-  password: FormControl = new FormControl('', [ Validators.minLength(3) ] );
+  password: FormControl = new FormControl('', [ Validators.minLength(8) ] );
   hidePassword = true;
 
-  setUsername(pUsername: String) {
-    this.username.setValue(pUsername);
-  }
-  submit(){
-
+  onSubmit(){
+    //TODO: Add HTTP-Request
   }
 }

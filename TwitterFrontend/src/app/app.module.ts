@@ -22,7 +22,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginNewComponent } from './login-new/login-new.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { NewHomeComponent } from './new-home/new-home.component'
 
 
 
@@ -43,6 +44,7 @@ const routes: Routes = [
     ProfileComponent,
     LoginNewComponent,
     ForgotPasswordComponent,
+    NewHomeComponent,
   ],
   imports: [
     BrowserModule,

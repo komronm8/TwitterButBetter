@@ -1,0 +1,17 @@
+<div class="login-form-container" id="bg-gray-800/60 backdrop-blur-lg border border-gray-600 p-10 py-16 text-white gap-4 rounded-xl flex flex-col">
+  <h1 class="sign-in-header">Please sign in</h1>
+  <form>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Mr. Great" [formControl]="username">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" []>
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+  </form>
+</div>

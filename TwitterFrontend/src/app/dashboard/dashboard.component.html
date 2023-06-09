@@ -9,12 +9,12 @@
     </mat-toolbar>
     <mat-sidenav-container class="dashboard">
         <mat-sidenav mode="side" class="sidenav" #sidenav>
-            <a [routerLink]="['/home']">Home</a>
-            <a [routerLink]="['/trends']">Trends</a>
-            <a [routerLink]="['/profile', session]" *ngIf="sessionActive">Profile</a>
+            <a href="/home">Home</a>
+            <a href="/trends">Trends</a>
+            <a href="/profile" *ngIf="sessionActive">Profile</a>
         </mat-sidenav>
         <mat-sidenav-content class="sidenav-content">
-            <router-outlet></router-outlet>
+            <p>This is content</p>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

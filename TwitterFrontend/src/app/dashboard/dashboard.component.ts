@@ -23,15 +23,15 @@ export class DashboardComponent {
     //TODO: make sidenav open over main content or minimize with only icons seen
   }
 
-  ngOnInit(){
-    this.http.isSessionActive(this.session).subscribe(
-      (response: {message: string}) => {
-        if(response.message.startsWith('true')) {
-          this.sessionActive = true;
-        } else {
-          this.sessionActive = false;
-        }
-      }
-    );
-  }
+  // ngOnInit() {
+  //   this.http.isSessionActive(this.session).subscribe(
+  //     (response: { message: string }) => {
+  //       if (response.message.startsWith('true')) {
+  //         this.sessionActive = true;
+  //       } else {
+  //         this.sessionActive = false;
+  //       }
+  //     }
+  //   );
+  // }
 }

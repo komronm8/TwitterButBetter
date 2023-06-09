@@ -1,0 +1,25 @@
+.toolbar{
+    height: 9vh;
+}
+
+.sidenav-content{
+    display: flex;
+    height: 91vh;
+    justify-content: center;
+}
+
+.sidenav{
+    padding: 3rem;
+    display: flex;
+    height: 91vh;
+    justify-content: center;
+}
+
+.whole-screen{
+    height: 100%;
+}
+
+.toolbar-corner{
+    margin-left: auto;
+    margin-right: 0;
+}

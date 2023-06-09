@@ -12,9 +12,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatTooltipModule } from '@angular/material/tooltip'
-import { MatBadgeModule } from '@angular/material/badge'
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 //Components
 import { AppComponent } from './app.component';
@@ -23,17 +24,19 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginNewComponent } from './login-new/login-new.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { NewHomeComponent } from './new-home/new-home.component'
-
+import { NewHomeComponent } from './new-home/new-home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
   //{ path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', component: DashboardComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'loginNew', component: LoginNewComponent },
-  { path: '', component: ForgotPasswordComponent }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -45,6 +48,8 @@ const routes: Routes = [
     LoginNewComponent,
     ForgotPasswordComponent,
     NewHomeComponent,
+    DashboardComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,9 @@ const routes: Routes = [
     MatButtonModule,
     MatCardModule,
     MatTooltipModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatToolbarModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -10,3 +10,11 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+.username-field{
+  width: 35vh;
+}
+
+.password-field{
+  width: 35vh;
+}

@@ -1,2 +1,21 @@
-<!-- <app-home></app-home> -->
-<router-outlet></router-outlet>
+<mat-toolbar class="toolbar">
+    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+    <span>TwitterButBetter</span>
+
+    <div class="toolbar-corner">
+        <button mat-fab extended (click)="newPost()" color="primary">
+            <mat-icon>add_circle</mat-icon> 
+            New Post
+        </button>
+    </div>
+</mat-toolbar>
+<mat-sidenav-container class="dashboard">
+    <mat-sidenav mode="side" class="sidenav" #sidenav>
+        <a href="/home">Home</a>
+        <a href="/trends">Trends</a>
+        <a href="/profile" *ngIf="sessionActive">Profile</a>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { validPasswordStrength } from '../forgot-password/customValidators';
 
 @Component({
   selector: 'app-login-new',
@@ -7,11 +8,34 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login-new.component.css']
 })
 export class LoginNewComponent {
-  username: FormControl = new FormControl('', [ Validators.minLength(3), Validators.maxLength(12) ] );
-  password: FormControl = new FormControl('', [ Validators.minLength(8) ] );
   hidePassword = true;
 
+  loginCreds: FormGroup;
+
+  constructor(private fb: FormBuilder){
+    this.loginCreds = this.fb.group({
+      username: ['', {
+        validators: [ Validators.minLength(3), Validators.maxLength(12) ],
+        asyncValidators: [],
+        updateOn: 'change'
+      }],
+      password: ['', {
+        validators: [ Validators.required, Validators.minLength(8), validPasswordStrength() ],
+        asyncValidators: [],
+        updateOn: 'change'
+      }]
+    });
+  }
+
+  loginDeny = true;
+
+  capsActive = false;
+
   onSubmit(){
-    //TODO: Add HTTP-Request
+    //TODO: HTTP Request Login
+  }
+
+  loginDenied(){
+    return this.loginDeny;
   }
 }

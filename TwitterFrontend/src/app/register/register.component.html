@@ -1,0 +1,33 @@
+<mat-card id="card">
+  <mat-card-header>
+      <mat-card-title>Please sign in</mat-card-title>
+      <mat-card-subtitle>Fill out all fields</mat-card-subtitle>
+  </mat-card-header>
+  <form [formGroup]="registerCreds">
+    <mat-card-content>
+      <mat-form-field class="email-field">
+        <mat-label>E-Mail</mat-label>
+        <input matInput placeholder="Mr. Great" formControlName="username">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="username-field">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Mr. Great" formControlName="username">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="password-field">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-raised-button type="submit" color="primary">Sign up</button>
+    </mat-card-actions>
+  </form>
+  <mat-card-footer>
+
+  </mat-card-footer>
+</mat-card>

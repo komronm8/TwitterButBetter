@@ -27,6 +27,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { NewHomeComponent } from './new-home/new-home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
     NewHomeComponent,
     DashboardComponent,
     PageNotFoundComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,14 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  tweet = {
-    user: 'User',
-    text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae praesentium minima quae voluptatem eos quia odit quasi unde, sed hic dolorum nesciunt esse corrupti ducimus repellendus accusamus.Assumenda, aliquid officia',
-  }
+  showPopup: Boolean = false
   tweets: any[] = []
-  constructor() {
-    for (let i = 0; i < 10; i++) {
-      this.tweets.push(this.tweet)
-    }
+    constructor() {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json)
+      this.tweets = json
+    });
   }
 }

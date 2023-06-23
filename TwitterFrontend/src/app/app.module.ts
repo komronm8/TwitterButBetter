@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TweetComponent } from './tweet/tweet.component';
+import { NewPostPopupComponent } from './new-post-popup/new-post-popup.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,7 +22,9 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    TweetComponent,
+    NewPostPopupComponent
   ],
   imports: [
     BrowserModule,

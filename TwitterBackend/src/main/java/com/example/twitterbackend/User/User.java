@@ -1,6 +1,10 @@
 package com.example.twitterbackend.User;
 
-import jakarta.persistence.*;
+import com.example.twitterbackend.Post.Post;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "person")
@@ -25,6 +29,11 @@ public class User {
     private String email;
 
     private String dob;
+
+    @JsonIgnore
+    @OneToMany
+    @JoinColumn(name = "person_id")
+    private Set<Post> posts;
 
     public User() {}
 
@@ -81,6 +90,14 @@ public class User {
 
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public Set<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
     }
 
     @Override

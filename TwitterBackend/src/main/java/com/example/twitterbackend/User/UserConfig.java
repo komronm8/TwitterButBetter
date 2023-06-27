@@ -12,15 +12,15 @@ public class UserConfig {
     @Bean
     CommandLineRunner userCommandLineRunner(UserRepository repository){
         return args -> {
-            User Mike = new User(
-                    "mikeymike",
-                    "password",
-                    "mike@gmail.com",
+            User Admin = new User(
+                    "admin",
+                    "admin",
+                    "admin@gmail.com",
                     "13/12/2001"
             );
 
             repository.saveAll(
-                    List.of(Mike)
+                    List.of(Admin)
             );
         };
     }

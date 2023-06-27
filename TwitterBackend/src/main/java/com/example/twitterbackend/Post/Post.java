@@ -1,9 +1,8 @@
 package com.example.twitterbackend.Post;
 
-import com.example.twitterbackend.Comment.Comment;
 import com.example.twitterbackend.User.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -27,11 +26,76 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @JsonIgnore
-    @OneToMany
-    @JoinColumn(name = "post_id")
-    private Set<Comment> comments;
     private LocalDate date;
     private LocalTime time;
-    private String subject;
+    private String text;
+
+    public Post() {
+    }
+
+    public Post(Long id, User user, LocalDate date, LocalTime time, String text) {
+        this.id = id;
+        this.user = user;
+        this.date = date;
+        this.time = time;
+        this.text = text;
+    }
+
+    public Post(User user, LocalDate date, LocalTime time, String text) {
+        this.user = user;
+        this.date = date;
+        this.time = time;
+        this.text = text;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", user=" + user +
+                ", date=" + date +
+                ", time=" + time +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }

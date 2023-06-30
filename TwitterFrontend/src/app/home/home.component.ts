@@ -7,6 +7,19 @@ import { Component,OnInit } from '@angular/core';
 })
 export class HomeComponent {
   showPopup: Boolean = false
+  popupType: 'create' | 'edit' = 'create'
+  popupValue: any = ''
+  edit(value: any) {
+    console.log(value)
+    this.popupType = 'edit'
+    this.popupValue = value
+    this.showPopup = true
+  }
+  openPopup() {
+    this.showPopup = true
+    this.popupType = 'create'
+    this.popupValue = ''
+}
   tweets: any[] = []
     constructor() {
     fetch('https://jsonplaceholder.typicode.com/posts')

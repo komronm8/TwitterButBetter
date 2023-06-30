@@ -8,9 +8,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class TweetComponent {
   @Input() tweet: any;
   @Input() isAuthor: Boolean | undefined;
-  @Output() edit: EventEmitter<any> = new EventEmitter();
+  @Output() edit = new EventEmitter<any>();
   editPost() {
-    this.edit.emit();
+    this.edit.emit(this.tweet);
   }
   constructor() {
   }

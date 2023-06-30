@@ -10,9 +10,9 @@
   }
 
 </style>
-<app-new-post-popup *ngIf="showPopup" (closePopup)="showPopup = false"></app-new-post-popup>
+<app-new-post-popup *ngIf="showPopup" (closePopup)="showPopup = false" [type]="popupType" [value]="popupValue"></app-new-post-popup>
 <div class="w-full gradient-background h-full p-10">
-  <app-nav-bar (openPopup)="showPopup = true"></app-nav-bar>
+  <app-nav-bar (openPopup)="openPopup()"></app-nav-bar>
 
   <div class="mt-36 md:mt-0 md:pl-[360px] w-full min-h-screen flex flex-col gap-10">
     <div
@@ -36,6 +36,6 @@
         </div>
       </div>
     </div>
-    <app-tweet *ngFor="let tweet of tweets" [tweet]="tweet" [isAuthor]="true" (edit)="showPopup = true"></app-tweet>
+    <app-tweet *ngFor="let tweet of tweets" [tweet]="tweet" [isAuthor]="true" (edit)="edit($event)"></app-tweet>
   </div>
 </div>

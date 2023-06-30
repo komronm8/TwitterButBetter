@@ -29,11 +29,13 @@
 <div class="w-full gradient-background h-screen flex justify-center items-center">
   <div
     class="bg-gray-800/60 backdrop-blur-lg border border-gray-600 p-10 py-16 text-white gap-4 rounded-xl flex flex-col">
-    <h1 class="text-3xl font-bold text-center">Sign in</h1>
-    <input type="text" class="w-64 h-14 rounded-lg bg-gray-800/60 backdrop-blur-xl p-4 outline-none"
-      placeholder="Username">
-    <input type="text" class="w-64 h-14 rounded-lg bg-gray-800/60 backdrop-blur-xl p-4 outline-none"
-      placeholder="Password">
-    <a routerLink="/home" class="h-14 w-64 rounded-lg bg-blue-700/60 text-center p-4 font-bold">Sign in</a>
+    <h1 class="text-3xl font-bold text-center">{{login ? 'Sign in' : 'Sign up'}}</h1>
+    <input name="username" type="text" class="w-64 h-14 rounded-lg bg-gray-800/60 backdrop-blur-xl p-4 outline-none"
+    placeholder="Username">
+    <input name="password" type="text" class="w-64 h-14 rounded-lg bg-gray-800/60 backdrop-blur-xl p-4 outline-none"
+    placeholder="Password">
+    <button type="submit" (click)="handleSubmit()" class="h-14 w-64 rounded-lg bg-blue-700/60 text-center p-4 font-bold">Sign in</button>
+      <p *ngIf="login" (click)="login = !login" class="text-sm cursor-pointer text-gray-200 text-center">Don't have an account? Sign up now</p>
+      <p *ngIf="login == false"  (click)="login = !login" class="text-sm cursor-pointer text-gray-200 text-center">Already have an account? Sign in</p>
   </div>
 </div>

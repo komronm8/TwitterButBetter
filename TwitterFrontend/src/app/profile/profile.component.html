@@ -14,7 +14,7 @@
 <div class="w-full gradient-background h-full p-10">
   <app-nav-bar (openPopup)="showPopup = true"></app-nav-bar>
 
-  <div class="mt-36 md:mt-0 md:pl-[360px] w-full h-full flex flex-col gap-10">
+  <div class="mt-36 md:mt-0 md:pl-[360px] w-full min-h-screen flex flex-col gap-10">
     <div
       class="w-full flex flex-col bg-gray-800/60 p-10 rounded-xl border backdrop-blur-lg border-gray-600 text-white gap-4">
       <div class="flex justify-between">
@@ -36,6 +36,6 @@
         </div>
       </div>
     </div>
-    <app-tweet *ngFor="let tweet of tweets" [tweet]="tweet"></app-tweet>
+    <app-tweet *ngFor="let tweet of tweets" [tweet]="tweet" [isAuthor]="true" (edit)="showPopup = true"></app-tweet>
   </div>
 </div>

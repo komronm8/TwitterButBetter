@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-tweet',
@@ -7,6 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class TweetComponent {
   @Input() tweet: any;
+  @Input() isAuthor: Boolean | undefined;
+  @Output() edit: EventEmitter<any> = new EventEmitter();
+  editPost() {
+    this.edit.emit();
+  }
   constructor() {
   }
 }

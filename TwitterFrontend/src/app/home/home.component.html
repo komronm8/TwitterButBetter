@@ -13,7 +13,7 @@
 <app-new-post-popup *ngIf="showPopup" (closePopup)="showPopup = false"></app-new-post-popup>
 <div class="w-full gradient-background h-full p-10">
 <app-nav-bar (openPopup)="showPopup = true"></app-nav-bar>
-  <div class="mt-36 md:mt-0 md:pl-[360px] w-full h-full flex flex-col gap-10">
-    <app-tweet *ngFor="let tweet of tweets" [tweet]="tweet"></app-tweet>
+  <div class="mt-36 md:mt-0 md:pl-[360px] w-full min-h-screen flex flex-col gap-10">
+    <app-tweet *ngFor="let tweet of tweets" [tweet]="tweet" [isAuthor]="false"></app-tweet>
   </div>
 </div>

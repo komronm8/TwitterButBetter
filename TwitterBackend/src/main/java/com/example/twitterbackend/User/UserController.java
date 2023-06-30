@@ -22,10 +22,14 @@ public class UserController {
     }
 
     @PostMapping(path = "registerUser")
-    public void registerCustomer(@RequestBody User user){
+    public void registerUser(@RequestBody User user){
         userService.addNewUser(user);
     }
 
-
+    @GetMapping
+    public User getUser(@RequestHeader("AUTHORIZATION") String authHeader){
+        String email = jwtUtils.extractUserName(authHeader.substring(7));
+        return userService.getUserByEmail(email);
+    }
 
 }

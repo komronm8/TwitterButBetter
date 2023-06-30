@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
+
 @CrossOrigin
 @RestController
 @RequestMapping(path = "/api/v1/auth")
@@ -26,7 +28,7 @@ public class AuthenticationController {
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
         final UserDetails user = userDetailsService.loadUserByUsername(request.getEmail());
-        if(user != null && user.getUsername() == "admin"){
+        if(user != null && Objects.equals(user.getUsername(), "admin")){
             return ResponseEntity.ok("admin " + jwtUtils.generateToken(user));
         }
         if(user != null){

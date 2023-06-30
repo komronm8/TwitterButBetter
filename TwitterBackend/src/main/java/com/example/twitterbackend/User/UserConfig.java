@@ -3,6 +3,7 @@ package com.example.twitterbackend.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class UserConfig {
         return args -> {
             User Admin = new User(
                     "admin",
-                    "admin",
+                    new BCryptPasswordEncoder().encode("admin"),
                     "admin@gmail.com",
                     "13/12/2001"
             );

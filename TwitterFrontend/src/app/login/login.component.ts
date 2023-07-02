@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private router: Router) {}
 
-  login: Boolean = false
+  login: Boolean = true
   
   handleSubmit() {
     const name = document.querySelector('input[name=name]') as HTMLTextAreaElement

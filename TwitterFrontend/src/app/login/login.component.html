@@ -34,7 +34,7 @@
     placeholder="Name">
     <input name="email" type="email" class="w-64 h-14 rounded-lg bg-gray-800/60 backdrop-blur-xl p-4 outline-none"
     placeholder="Email">
-    <input name="password" type="text" class="w-64 h-14 rounded-lg bg-gray-800/60 backdrop-blur-xl p-4 outline-none"
+    <input name="password" type="password" class="w-64 h-14 rounded-lg bg-gray-800/60 backdrop-blur-xl p-4 outline-none"
     placeholder="Password">
     <button type="submit" (click)="handleSubmit()" class="h-14 w-64 rounded-lg bg-blue-700/60 text-center p-4 font-bold">{{login ? 'Sign in' : 'Sign up'}}</button>
       <p *ngIf="login" (click)="login = !login" class="text-sm cursor-pointer text-gray-200 text-center">Don't have an account? Sign up now</p>

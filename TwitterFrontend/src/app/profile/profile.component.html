@@ -19,23 +19,27 @@
       class="w-full flex flex-col bg-gray-800/60 p-10 rounded-xl border backdrop-blur-lg border-gray-600 text-white gap-4">
       <div class="flex justify-between">
         <h1 class="text-3xl font-bold">Your Profile</h1>
-        <a routerLink="/login" class="text-lg underline">Log out</a>
+        <p class="text-lg underline cursor-pointer" (click)="logOut()">Log out</p>
       </div>
       <div class="flex gap-10 flex-wrap">
         <div class="flex gap-2">
-          <p class="text-lg text-gray-400">Username:</p>
-          <p class="text-lg">User</p>
+          <p class="text-lg text-gray-400">Name:</p>
+          <p class="text-lg">{{user ? user.name : '...'}}</p>
+        </div>
+        <div class="flex gap-2">
+          <p class="text-lg text-gray-400">Email:</p>
+          <p class="text-lg">{{user ? user.email : '...'}}</p>
         </div>
         <div class="flex gap-2">
           <p class="text-lg text-gray-400">Role:</p>
-          <p class="text-lg">User</p>
+          <p class="text-lg">{{user ? user.role : '...'}}</p>
         </div>
         <div class="flex gap-2">
           <p class="text-lg text-gray-400">Tweets posted:</p>
-          <p class="text-lg">2</p>
+          <p class="text-lg">{{tweets ? tweets.length : '...'}}</p>
         </div>
       </div>
     </div>
-    <app-tweet *ngFor="let tweet of tweets" [tweet]="tweet" [isAuthor]="true" (edit)="edit($event)"></app-tweet>
+    <app-tweet *ngFor="let tweet of tweets" [tweet]="tweet" [currentUser]="user" (edit)="edit($event)"></app-tweet>
   </div>
 </div>

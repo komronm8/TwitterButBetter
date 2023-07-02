@@ -50,16 +50,22 @@ public class PostController {
 
     @DeleteMapping(path = "{post_id}")
     public void deletePost(
+            @RequestHeader("AUTHORIZATION") String authHeader,
             @PathVariable("post_id") Integer post_id
     ){
-        postService.deletePost(post_id);
+        String email = jwtService.extractUsername(authHeader.substring(7));
+        User user = userService.getUserByEmail(email);
+        postService.deletePost(post_id, user);
     }
 
     @PutMapping(path = "/updatePost")
     public void updatePost(
+            @RequestHeader("AUTHORIZATION") String authHeader,
             @RequestBody Post post
     ){
-        postService.updatePost(post);
+        String email = jwtService.extractUsername(authHeader.substring(7));
+        User user = userService.getUserByEmail(email);
+        postService.updatePost(post, user);
     }
 
 }
